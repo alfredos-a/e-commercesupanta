@@ -1,0 +1,10 @@
+.menu__list{
+   list-style-type: none;
+   display: flex;
+   column-gap: 0.5rem; 
+   margin: 0;
+   padding: 0;     
+}
+.menu__item:hover{
+   font-weight: 600;
+}
