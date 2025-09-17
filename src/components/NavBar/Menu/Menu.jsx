@@ -6,10 +6,9 @@ const Menu = () => {
     <div className="menu">
       <nav className="menu__wrap">
         <ul className="menu__list">
-          <li className="menu__item">Hombre</li>
-          <li className="menu__item">Mujer</li>
-          <li className="menu__item">Niños</li>
-          <li className="menu__item">Equipamiento</li>
+          <li className="menu__item">Despensa</li>
+          <li className="menu__item">Lacteos</li>
+          <li className="menu__item">Aseo</li>
         </ul>
       </nav>
     </div>
