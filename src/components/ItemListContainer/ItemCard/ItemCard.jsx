@@ -18,6 +18,9 @@ const ItemCard = ({ datosProducto }) => {
             <div className="item-card__cantidad">
               <p>{datosProducto.cantidad}</p>
             </div>
+            <div className="item-card__cantidad">
+              <p>{datosProducto.cantidad}</p>
+            </div>
           </div>
         </div>
       </li>
