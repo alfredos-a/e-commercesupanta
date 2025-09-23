@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { obtenerProductos } from '../Data/Data'
 import ItemCard from './ItemCard/ItemCard'
+import "./ItemListContainer.css"
 
 const ItemListContainer = ({datos}) => {
 
@@ -23,7 +24,7 @@ const ItemListContainer = ({datos}) => {
 
   return (
     <div>
-      <ul>
+      <ul className='item-list-container'>
         {productos.length > 0 && productos.map(producto => (
           <ItemCard datosProducto={producto}/>
         ))}
