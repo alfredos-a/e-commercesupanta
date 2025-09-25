@@ -4,10 +4,10 @@ import "./ItemCard.css";
 const ItemCard = ({ datosProducto }) => {
   return (
     <>
-      <li className="item-card" key={datosProducto.id}>
+      <li className="item-card">
         <div className="item-card__wrap">
           <div className="item-card__img">
-            <img src={datosProducto.imagen} alt="imagen-producto" />
+            <img src={datosProducto && datosProducto.imagen} alt="imagen-producto" />
           </div>
           <div className="item-card__nombre">
             <p>{datosProducto.nombre}</p>

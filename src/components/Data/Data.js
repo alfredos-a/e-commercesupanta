@@ -3,105 +3,107 @@ const productos = [
     id: 1,
     cantidad: 50,
     nombre: "Arroz Integral",
-    imagen: "./images/arroz-integral.webp",
-    categoria: "Alimentos",
+    imagen: "/images/arroz-integral.webp",
+    categoria: "Despensa",
     pais: "Argentina",
-    descripcion: "Arroz integral de grano largo, ideal para una dieta saludable.",
-    precio: 1800
+    descripcion:
+      "Arroz integral de grano largo, ideal para una dieta saludable.",
+    precio: 1800,
   },
   {
     id: 2,
     cantidad: 30,
     nombre: "Leche Descremada",
-    imagen: "./images/leche-descremada.webp",
-    categoria: "Lácteos",
+    imagen: "/images/leche-descremada.webp",
+    categoria: "Lacteos",
     pais: "Uruguay",
     descripcion: "Leche descremada sin conservantes, rica en calcio.",
-    precio: 1200
+    precio: 1200,
   },
   {
     id: 3,
     cantidad: 20,
     nombre: "Huevos (docena)",
-    imagen: "./images/huevos.webp",
-    categoria: "Huevos",
+    imagen: "/images/huevos.webp",
+    categoria: "Lacteos",
     pais: "Chile",
     descripcion: "Docena de huevos frescos de gallinas de campo.",
-    precio: 2800
+    precio: 2800,
   },
   {
     id: 4,
     cantidad: 100,
     nombre: "Pan Integral",
-    imagen: "./images/pan-integral.webp",
-    categoria: "Panadería",
+    imagen: "/images/pan-integral.webp",
+    categoria: "Panaderia",
     pais: "Argentina",
     descripcion: "Pan integral con semillas, sin aditivos ni conservantes.",
-    precio: 1500
+    precio: 1500,
   },
   {
     id: 5,
     cantidad: 80,
     nombre: "Manzanas Rojas",
-    imagen: "./images/manzanas.jpg",
+    imagen: "/images/manzanas.jpg",
     categoria: "Frutas",
     pais: "Brasil",
     descripcion: "Manzanas frescas, dulces y crujientes, ideales para snacks.",
-    precio: 2200
+    precio: 2200,
   },
   {
     id: 6,
     cantidad: 45,
     nombre: "Zanahorias",
-    imagen: "./images/zanahorias.webp",
+    imagen: "/images/zanahorias.webp",
     categoria: "Verduras",
     pais: "Perú",
     descripcion: "Zanahorias orgánicas cosechadas localmente.",
-    precio: 900
+    precio: 900,
   },
   {
     id: 7,
     cantidad: 25,
     nombre: "Detergente Líquido",
-    imagen: "./images/detergente.webp",
+    imagen: "/images/detergente.webp",
     categoria: "Limpieza",
     pais: "México",
-    descripcion: "Detergente concentrado para lavarropas, con fragancia floral.",
-    precio: 3500
+    descripcion:
+      "Detergente concentrado para lavarropas, con fragancia floral.",
+    precio: 3500,
   },
   {
     id: 8,
     cantidad: 60,
     nombre: "Pechuga de Pollo",
-    imagen: "./images/pollo.webp",
+    imagen: "/images/pollo.webp",
     categoria: "Carnes",
     pais: "Argentina",
     descripcion: "Pechuga de pollo sin piel, lista para cocinar.",
-    precio: 4800
+    precio: 4800,
   },
   {
     id: 9,
     cantidad: 15,
     nombre: "Yogur Natural",
-    imagen: "./images/yoghurt.webp",
-    categoria: "Lácteos",
+    imagen: "/images/yoghurt.webp",
+    categoria: "Lacteos",
     pais: "Colombia",
     descripcion: "Yogur natural sin azúcar, perfecto para desayunos o batidos.",
-    precio: 1000
+    precio: 1000,
   },
   {
     id: 10,
     cantidad: 40,
     nombre: "Aceite de Girasol",
-    imagen: "./images/aceite.webp",
+    imagen: "/images/aceite.webp",
     categoria: "Despensa",
     pais: "España",
     descripcion: "Aceite de girasol alto oleico, ideal para freír y cocinar.",
-    precio: 2700
-  }
+    precio: 2700,
+  },
 ];
 
- export function obtenerProductos() {
+export function obtenerProductos() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(productos);
@@ -109,7 +111,16 @@ const productos = [
   });
 }
 
+export function obtenerProductosPorCategoria(nombreCategoria) {
+  return new Promise((resolve) => {
+    let grupoFiltrado = productos.filter(p => p.categoria.toLocaleLowerCase() === nombreCategoria.toLocaleLowerCase())
+    setTimeout(() => {
+      resolve(grupoFiltrado);
+    }, 1000);
+  });
+}
+
 // Uso del fetch simulado
-obtenerProductos().then(data => {
+obtenerProductos().then((data) => {
   console.log("Productos cargados:", data);
 });

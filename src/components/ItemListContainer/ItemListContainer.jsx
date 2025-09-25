@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { obtenerProductos } from '../Data/Data'
+import { useParams } from "react-router";
+import { obtenerProductos,obtenerProductosPorCategoria } from '../Data/Data'
 import ItemCard from './ItemCard/ItemCard'
 import "./ItemListContainer.css"
 
-const ItemListContainer = ({datos}) => {
-
+const ItemListContainer = () => {
+  let {nombreCategoria} = useParams()
   const [productos, setProductos] = useState([])
 
   useEffect(()=>{
-    obtenerProductos().then(data => {
-      setProductos(data)
-    })
-  },[])
+    if(!nombreCategoria){
+      obtenerProductos().then(data => {
+        setProductos(data)
+      })
+    }else{
+      obtenerProductosPorCategoria(nombreCategoria).then(data => {
+        setProductos(data)
+      })
+    }
+  },[nombreCategoria])
   console.log("productos",productos)
 
   if(!productos.length > 0){
@@ -26,7 +33,7 @@ const ItemListContainer = ({datos}) => {
     <div>
       <ul className='item-list-container'>
         {productos.length > 0 && productos.map(producto => (
-          <ItemCard datosProducto={producto}/>
+          <ItemCard key={producto.id} datosProducto={producto}/>
         ))}
       </ul>
     </div>

@@ -5,14 +5,13 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import "./App.css";
 
 function App() {
-  const datos = "Lista de productos";
   return (
     <>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/items" element={<ItemListContainer datos={datos} />} />
+          <Route path="/" element={<ItemListContainer/>} />
+          <Route path="/categoria/:nombreCategoria" element={<ItemListContainer/>} />
         </Routes>
       </BrowserRouter>
     </>
